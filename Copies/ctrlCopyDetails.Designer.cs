@@ -38,8 +38,8 @@
             this.lblBarcode = new System.Windows.Forms.Label();
             this.lblBookTitle = new System.Windows.Forms.Label();
             this.lblCopyID = new System.Windows.Forms.Label();
-            this.llblEditeCopy = new System.Windows.Forms.LinkLabel();
             this.llblShowBookDetails = new System.Windows.Forms.LinkLabel();
+            this.llblEditeCopy = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -142,18 +142,6 @@
             this.lblCopyID.TabIndex = 9;
             this.lblCopyID.Text = "Copy ID";
             // 
-            // llblEditeCopy
-            // 
-            this.llblEditeCopy.AutoSize = true;
-            this.llblEditeCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblEditeCopy.Location = new System.Drawing.Point(714, 216);
-            this.llblEditeCopy.Name = "llblEditeCopy";
-            this.llblEditeCopy.Size = new System.Drawing.Size(100, 24);
-            this.llblEditeCopy.TabIndex = 10;
-            this.llblEditeCopy.TabStop = true;
-            this.llblEditeCopy.Text = "Edit Copy";
-            this.llblEditeCopy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblEditeCopy_LinkClicked);
-            // 
             // llblShowBookDetails
             // 
             this.llblShowBookDetails.AutoSize = true;
@@ -165,6 +153,17 @@
             this.llblShowBookDetails.TabStop = true;
             this.llblShowBookDetails.Text = "Book Info";
             this.llblShowBookDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowBookDetails_LinkClicked);
+            // 
+            // llblEditeCopy
+            // 
+            this.llblEditeCopy.AutoSize = true;
+            this.llblEditeCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblEditeCopy.Location = new System.Drawing.Point(714, 216);
+            this.llblEditeCopy.Name = "llblEditeCopy";
+            this.llblEditeCopy.Size = new System.Drawing.Size(100, 24);
+            this.llblEditeCopy.TabIndex = 10;
+            this.llblEditeCopy.TabStop = true;
+            this.llblEditeCopy.Text = "Edit Copy";
             // 
             // ctrlCopyDetails
             // 
@@ -201,7 +200,7 @@
         private System.Windows.Forms.Label lblBarcode;
         private System.Windows.Forms.Label lblBookTitle;
         private System.Windows.Forms.Label lblCopyID;
-        private System.Windows.Forms.LinkLabel llblEditeCopy;
         private System.Windows.Forms.LinkLabel llblShowBookDetails;
+        private System.Windows.Forms.LinkLabel llblEditeCopy;
     }
 }

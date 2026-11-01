@@ -16,8 +16,8 @@ namespace LibraryManegement
     public partial class ctrlPersonCardWithFilter : UserControl
     {
        
-      public int PersonID { get { return ctrlCardPerson1.PersonID; }  }
-     public clsPerson PersonInfo { get { return ctrlCardPerson1.PersonInfo; } }
+        public int PersonID { get { return ctrlCardPerson1.PersonID; }  }
+        public clsPerson PersonInfo { get { return ctrlCardPerson1.PersonInfo; } }
         public bool EnableFilterBox
         {
             set { gbFilter.Enabled = value; }
@@ -88,6 +88,7 @@ namespace LibraryManegement
 
         private void txtFilter_Validating(object sender, CancelEventArgs e)
         {
+          
             if (string.IsNullOrEmpty(txtFilter.Text))
             {
                 e.Cancel = true;
@@ -114,16 +115,32 @@ namespace LibraryManegement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-           if (!ValidateChildren())
+            if(string.IsNullOrEmpty(txtFilter.Text))
+            {
+                MessageBox.Show("Enter value to search");
+                txtFilter.Focus();
+                return;
+            }
+           
+            FindNow();
+            /*
+             if (!ValidateChildren())
             {
                 MessageBox.Show("Some filed are not Valide put mouse over red icon(s)", "Validation Erroe", MessageBoxButtons.OK);
                 return;
             }
-            FindNow();
+             */
+
         }
         public void RestPersonInfo()
         {
             ctrlCardPerson1.ResetPersonInfo();
+        }
+
+        private void ctrlPersonCardWithFilter_Load(object sender, EventArgs e)
+        {
+            cbFilterBy.SelectedIndex = 0;
+            txtFilter.Focus();
         }
     }
 }

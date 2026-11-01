@@ -34,7 +34,7 @@ namespace LibraryManegement
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddUpdateUser frm=new frmAddUpdateUser();
+            frmListUsers frm=new frmListUsers();
             frm.ShowDialog();
         }
 

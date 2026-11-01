@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace LibraryManegement
 {
     public partial class frmListCopiesOfBooks : Form
     {
+        private clsBookCopy copyInfo;
         public DataTable _AllCopies = clsBookCopy.GetAllCopies();
         public frmListCopiesOfBooks()
         {
@@ -155,12 +157,73 @@ namespace LibraryManegement
             frm.ShowDialog();
         }
 
-        private void updateCopyToolStripMenuItem_Click(object sender, EventArgs e)
+        /*
+         private void updateCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdateCopy frm = new frmAddUpdateCopy((int)dgListCopyies.CurrentRow.Cells[0].Value);
             frm.CopySave += _RefreshData;
 
             frm.ShowDialog();
+        }
+         */
+
+        private void renewBracodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _FindBookCopy();
+            if (copyInfo != null)
+            {
+                if(copyInfo.RenewBarcode())
+                {
+                    _RefreshData(null, null);
+                    MessageBox.Show("Renew Barcode successfuly");
+                }
+                else
+                {
+                    MessageBox.Show("Faild to Renew Barcode");
+                }
+            }
+        }
+
+        private void _FindBookCopy()
+        {
+            int CopyID = (int)dgListCopyies.CurrentRow.Cells[0].Value;
+            copyInfo = clsBookCopy.Find(CopyID);
+        }
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            _FindBookCopy();
+            if (copyInfo != null)
+            {
+                bool isMatch = SecurityManager.IsAthorized(typeof(clsBookCopy), nameof(clsBookCopy.RenewBarcode), Global.CurrentUser.UserName);
+                renewBracodeToolStripMenuItem.Enabled = copyInfo.Condition == clsBookCopy.enStatusCopy.Damage && copyInfo.IsAvailable && isMatch;
+                updateCopyToolStripMenuItem.Enabled = copyInfo.IsAvailable;
+            
+            }
+        }
+        private void Status_DoubleClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem=(ToolStripMenuItem)sender;
+            _FindBookCopy();
+            switch(clickedItem.Text)
+            {
+                case "New":
+                    {
+                        copyInfo.UpdateStatusOfCopy(clsBookCopy.enStatusCopy.New);
+                        break;
+                    }
+                case "Good":
+                    {
+                        copyInfo.UpdateStatusOfCopy(clsBookCopy.enStatusCopy.Good);
+                        break;
+                    }
+                case "Damage":
+                    {
+                        copyInfo.UpdateStatusOfCopy(clsBookCopy.enStatusCopy.Damage);
+                        break;
+                    }
+            }
+            _RefreshData(null, null);
+        
         }
     }
 }

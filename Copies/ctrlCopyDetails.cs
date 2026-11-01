@@ -87,12 +87,14 @@ namespace LibraryManegement
             }
             _FillData();
         }
-        private void llblEditeCopy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        /*
+         private void llblEditeCopy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdateCopy frm = new frmAddUpdateCopy(CopyID);
             frm.CopySave += LoadData;
             frm.ShowDialog();
         }
+         */
 
         private void llblShowBookDetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -104,5 +106,7 @@ namespace LibraryManegement
             frmShowBookInfo frm = new frmShowBookInfo(CopyInfo.BookID);
             frm.ShowDialog();
         }
+
+       
     }
 }

@@ -95,12 +95,15 @@ namespace LibraryManegement
                 _AllBorrowings.DefaultView.RowFilter = string.Format("[{0}] like '{1}%'", ColumnName, textBox1.Text.Trim());
         }
 
-        private void updateBToolStripMenuItem_Click(object sender, EventArgs e)
+        /*
+         private void updateBToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdateBorrowings frm = new frmAddUpdateBorrowings((int)dgListBorrowings.CurrentRow.Cells[0].Value);
             frm.SaveBorrowing += ShowUpdateData;
             frm.ShowDialog();
         }
+         
+         */
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
@@ -148,31 +151,36 @@ namespace LibraryManegement
                 MessageBox.Show("this BorrowingRecord not found");
                 return;
             }
-            if (MessageBox.Show("do you want pay now or later ","Confirm",MessageBoxButtons.YesNo)==DialogResult.Yes)
+          if(borrowing.ReportLostCopy(Global.CurrentUser.UserID,false,borrowing.FineOfReportLost))
             {
-                
-                if(borrowing.ReportLostCopy(Global.CurrentUser.UserID, true, 10))
-                {
-                    ShowUpdateData(null, null);
-                    MessageBox.Show("Update the statues for Copy");
-                       
-                }
+                ShowUpdateData(null, null);
+                MessageBox.Show($"Reporting lost Copy Succefuly,must pay Fine Of Losting Copy{borrowing.FineOfReportLost}");
             }
-            else
-            {
-                if (borrowing.ReportLostCopy(Global.CurrentUser.UserID, false, 10))
-                {
-                    ShowUpdateData(null, null);
-                    MessageBox.Show("Update the statues for Copy");
-                }
+          //payment must be in Fines Screen
+            /*
+              if (MessageBox.Show("do you want pay now or later ","Confirm",MessageBoxButtons.YesNo)==DialogResult.Yes)
+             {
 
-            }
+                 if(borrowing.ReportLostCopy(Global.CurrentUser.UserID, true, 10))
+                 {
+                     ShowUpdateData(null, null);
+                     MessageBox.Show("Update the statues for Copy");
 
+                 }
+             }
+             else
+             {
+                 if (borrowing.ReportLostCopy(Global.CurrentUser.UserID, false, 10))
+                 {
+                     ShowUpdateData(null, null);
+                     MessageBox.Show("Update the statues for Copy");
+                 }
 
-
+             }
+             */
         }
 
-      private void ShowUpdateData(object sender, EventSaveBorrowingArg e)
+        private void ShowUpdateData(object sender, EventSaveBorrowingArg e)
         {
             _AllBorrowings = clsBorrowing.GetAllBorrowing();
             dgListBorrowings.DataSource = _AllBorrowings;

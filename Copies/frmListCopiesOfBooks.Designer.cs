@@ -34,13 +34,17 @@
             this.addCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showCopyDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.damageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renewBracodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.lblCountRecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbIsVailable = new System.Windows.Forms.ComboBox();
-            this.updateCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgListCopyies)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,30 +66,70 @@
             this.addCopyToolStripMenuItem,
             this.deleteCopyToolStripMenuItem,
             this.showCopyDetailsToolStripMenuItem,
-            this.updateCopyToolStripMenuItem});
+            this.updateCopyToolStripMenuItem,
+            this.renewBracodeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 114);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addCopyToolStripMenuItem
             // 
             this.addCopyToolStripMenuItem.Name = "addCopyToolStripMenuItem";
-            this.addCopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addCopyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.addCopyToolStripMenuItem.Text = "Add Copy";
             this.addCopyToolStripMenuItem.Click += new System.EventHandler(this.addCopyToolStripMenuItem_Click);
             // 
             // deleteCopyToolStripMenuItem
             // 
             this.deleteCopyToolStripMenuItem.Name = "deleteCopyToolStripMenuItem";
-            this.deleteCopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteCopyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.deleteCopyToolStripMenuItem.Text = "Delete Copy";
             this.deleteCopyToolStripMenuItem.Click += new System.EventHandler(this.deleteCopyToolStripMenuItem_Click);
             // 
             // showCopyDetailsToolStripMenuItem
             // 
             this.showCopyDetailsToolStripMenuItem.Name = "showCopyDetailsToolStripMenuItem";
-            this.showCopyDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showCopyDetailsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.showCopyDetailsToolStripMenuItem.Text = "Show Copy Details";
             this.showCopyDetailsToolStripMenuItem.Click += new System.EventHandler(this.showCopyDetailsToolStripMenuItem_Click);
+            // 
+            // updateCopyToolStripMenuItem
+            // 
+            this.updateCopyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.goodToolStripMenuItem,
+            this.damageToolStripMenuItem});
+            this.updateCopyToolStripMenuItem.Name = "updateCopyToolStripMenuItem";
+            this.updateCopyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.updateCopyToolStripMenuItem.Text = "Update Stause Of Copy";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.DoubleClick += new System.EventHandler(this.Status_DoubleClick);
+            // 
+            // goodToolStripMenuItem
+            // 
+            this.goodToolStripMenuItem.Name = "goodToolStripMenuItem";
+            this.goodToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.goodToolStripMenuItem.Text = "Good";
+            this.goodToolStripMenuItem.DoubleClick += new System.EventHandler(this.Status_DoubleClick);
+            // 
+            // damageToolStripMenuItem
+            // 
+            this.damageToolStripMenuItem.Name = "damageToolStripMenuItem";
+            this.damageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.damageToolStripMenuItem.Text = "Damage";
+            this.damageToolStripMenuItem.DoubleClick += new System.EventHandler(this.Status_DoubleClick);
+            // 
+            // renewBracodeToolStripMenuItem
+            // 
+            this.renewBracodeToolStripMenuItem.Name = "renewBracodeToolStripMenuItem";
+            this.renewBracodeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.renewBracodeToolStripMenuItem.Text = "Renew Bracode";
+            this.renewBracodeToolStripMenuItem.Click += new System.EventHandler(this.renewBracodeToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -156,13 +200,6 @@
             this.cbIsVailable.Size = new System.Drawing.Size(121, 21);
             this.cbIsVailable.TabIndex = 7;
             // 
-            // updateCopyToolStripMenuItem
-            // 
-            this.updateCopyToolStripMenuItem.Name = "updateCopyToolStripMenuItem";
-            this.updateCopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.updateCopyToolStripMenuItem.Text = "Update Copy";
-            this.updateCopyToolStripMenuItem.Click += new System.EventHandler(this.updateCopyToolStripMenuItem_Click);
-            // 
             // frmListCopiesOfBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,5 +236,9 @@
         private System.Windows.Forms.ToolStripMenuItem deleteCopyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showCopyDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateCopyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renewBracodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goodToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem damageToolStripMenuItem;
     }
 }

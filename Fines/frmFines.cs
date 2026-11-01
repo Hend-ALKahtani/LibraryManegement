@@ -14,7 +14,8 @@ namespace LibraryManegement
 {
     public partial class frmFines : Form
     {
-       private DataTable _AllFine=clsFines.GettAllFines();
+        private DataGridView grid ;
+        private DataTable _AllFine=clsFines.GettAllFines();
         private DataTable _AllUnPaidLostCopyFine = clsFines.GetAllUnPaidLostCopyFines();
         private DataTable _AllUnPaidOverDue=clsFines.GettAllUnPaidOverDueFine();
         private DataTable _dtCurrent;
@@ -25,7 +26,7 @@ namespace LibraryManegement
         
         private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           int FineID = (int)dgvLostCopyFines.CurrentRow.Cells[0].Value;
+           int FineID = (int)grid.CurrentRow.Cells[0].Value;
             clsFines fines = clsFines.Find(FineID);
             if (fines == null)
             {
@@ -39,7 +40,6 @@ namespace LibraryManegement
             }
             if(fines.PayFines())
             {
-
                 _RefreshData();
                 MessageBox.Show("Payment successfully");
             
@@ -146,6 +146,12 @@ namespace LibraryManegement
                 case 0:
                     {
                         _RefreshDataAfterPaymentOfAllFines();
+                       if(tabControl1.SelectedIndex==1)
+                        {
+                            dgvLostCopyFines.DataSource = _AllUnPaidLostCopyFine;
+                        }
+                       else
+                            dgvOverDueFines.DataSource = _AllUnPaidOverDue;
                         break;
                     }
                 case 1:
@@ -197,14 +203,17 @@ namespace LibraryManegement
             if (tabControl1.SelectedIndex == 0)
             {
                 _dtCurrent = _AllFine;
+                grid = dgAllFines;
             }
             else if (tabControl1.SelectedIndex == 1)
             {
                 _dtCurrent = _AllUnPaidLostCopyFine;
+                grid = dgvLostCopyFines;
             }
             else if (tabControl1.SelectedIndex == 2)
             {
                 _dtCurrent = _AllUnPaidOverDue;
+                grid = dgvOverDueFines;
             }
         }
 

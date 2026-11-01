@@ -86,5 +86,9 @@ namespace LibraryManegement
             frm.ShowDialog();
         }
 
+        private void ctrlCopyDetails1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

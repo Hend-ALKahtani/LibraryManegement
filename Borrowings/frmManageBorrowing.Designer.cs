@@ -30,14 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgListBorrowings = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addNewBorrowingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extendDueDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addNewBorrowingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extendDueDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgListBorrowings)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +50,37 @@
             this.dgListBorrowings.Name = "dgListBorrowings";
             this.dgListBorrowings.Size = new System.Drawing.Size(1331, 250);
             this.dgListBorrowings.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewBorrowingToolStripMenuItem,
+            this.extendDueDateToolStripMenuItem,
+            this.reportToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 92);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // addNewBorrowingToolStripMenuItem
+            // 
+            this.addNewBorrowingToolStripMenuItem.Name = "addNewBorrowingToolStripMenuItem";
+            this.addNewBorrowingToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addNewBorrowingToolStripMenuItem.Text = "Add New Borrowing";
+            this.addNewBorrowingToolStripMenuItem.Click += new System.EventHandler(this.addNewBorrowingToolStripMenuItem_Click);
+            // 
+            // extendDueDateToolStripMenuItem
+            // 
+            this.extendDueDateToolStripMenuItem.Name = "extendDueDateToolStripMenuItem";
+            this.extendDueDateToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.extendDueDateToolStripMenuItem.Text = "Extend Due Date";
+            this.extendDueDateToolStripMenuItem.Click += new System.EventHandler(this.extendDueDateToolStripMenuItem_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.reportToolStripMenuItem.Text = "Report Lost Copy";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // textBox1
             // 
@@ -87,45 +117,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewBorrowingToolStripMenuItem,
-            this.updateBToolStripMenuItem,
-            this.extendDueDateToolStripMenuItem,
-            this.reportToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 92);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // addNewBorrowingToolStripMenuItem
-            // 
-            this.addNewBorrowingToolStripMenuItem.Name = "addNewBorrowingToolStripMenuItem";
-            this.addNewBorrowingToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.addNewBorrowingToolStripMenuItem.Text = "Add New Borrowing";
-            this.addNewBorrowingToolStripMenuItem.Click += new System.EventHandler(this.addNewBorrowingToolStripMenuItem_Click);
-            // 
-            // updateBToolStripMenuItem
-            // 
-            this.updateBToolStripMenuItem.Name = "updateBToolStripMenuItem";
-            this.updateBToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.updateBToolStripMenuItem.Text = "Update Borrowing";
-            this.updateBToolStripMenuItem.Click += new System.EventHandler(this.updateBToolStripMenuItem_Click);
-            // 
-            // extendDueDateToolStripMenuItem
-            // 
-            this.extendDueDateToolStripMenuItem.Name = "extendDueDateToolStripMenuItem";
-            this.extendDueDateToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.extendDueDateToolStripMenuItem.Text = "Extend Due Date";
-            this.extendDueDateToolStripMenuItem.Click += new System.EventHandler(this.extendDueDateToolStripMenuItem_Click);
-            // 
-            // reportToolStripMenuItem
-            // 
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.reportToolStripMenuItem.Text = "Report Lost Copy";
-            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
-            // 
             // frmManageBorrowing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,7 +144,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem addNewBorrowingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extendDueDateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
     }

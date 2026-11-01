@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.singOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.memberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.singOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.booksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,16 +39,10 @@
             this.borrowingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentFinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.singOutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(330, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -70,33 +61,19 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.memberToolStripMenuItem,
-            this.singOutToolStripMenuItem1,
             this.usersToolStripMenuItem,
             this.memberToolStripMenuItem1,
             this.booksToolStripMenuItem,
             this.bookCopiesToolStripMenuItem,
             this.borrowingsToolStripMenuItem,
             this.returnCopyToolStripMenuItem,
-            this.paymentFinesToolStripMenuItem});
+            this.paymentFinesToolStripMenuItem,
+            this.singOutToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // memberToolStripMenuItem
-            // 
-            this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            this.memberToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.memberToolStripMenuItem.Text = "Member";
-            // 
-            // singOutToolStripMenuItem1
-            // 
-            this.singOutToolStripMenuItem1.Name = "singOutToolStripMenuItem1";
-            this.singOutToolStripMenuItem1.Size = new System.Drawing.Size(63, 20);
-            this.singOutToolStripMenuItem1.Text = "Sing out";
-            this.singOutToolStripMenuItem1.Click += new System.EventHandler(this.singOutToolStripMenuItem1_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -147,13 +124,19 @@
             this.paymentFinesToolStripMenuItem.Text = "Payment Fines";
             this.paymentFinesToolStripMenuItem.Click += new System.EventHandler(this.paymentFinesToolStripMenuItem_Click);
             // 
+            // singOutToolStripMenuItem1
+            // 
+            this.singOutToolStripMenuItem1.Name = "singOutToolStripMenuItem1";
+            this.singOutToolStripMenuItem1.Size = new System.Drawing.Size(63, 20);
+            this.singOutToolStripMenuItem1.Text = "Sing out";
+            this.singOutToolStripMenuItem1.Click += new System.EventHandler(this.singOutToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.textBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -166,12 +149,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem singOutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem memberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem singOutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem memberToolStripMenuItem1;

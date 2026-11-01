@@ -1,14 +1,6 @@
 ﻿using LibraryMangegment_BusnissLogic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace LibraryManegement
 {
     public partial class frmReturnCopy : Form
@@ -39,7 +31,7 @@ namespace LibraryManegement
        private void _LoadFeesInfo()
         {
             lblLateDays.Text = _Borrowing.OverDueDays.ToString();
-            lblFees.Text = _Borrowing.FineAmount.ToString();
+            lblFees.Text = _Borrowing.FineAmountOFLate.ToString();
             lblTotal.Text=_Borrowing.TotalFineAmount.ToString();
         }
         private void frmReturnCopy_Load(object sender, EventArgs e)
