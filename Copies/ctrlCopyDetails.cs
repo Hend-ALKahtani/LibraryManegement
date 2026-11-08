@@ -25,6 +25,7 @@ namespace LibraryManegement
       
         private void SetData()
         {
+            _CopyID = -1;
             lblCopyID.Text = "[???]";
             lblBookTitle.Text = "[???]";
             lblBarcode.Text = "[???]";
@@ -45,7 +46,7 @@ namespace LibraryManegement
             CopyInfo = clsBookCopy.Find(CopyID);
             if(CopyInfo == null)
             {
-                _CopyID = -1;
+                
                 SetData();
                 MessageBox.Show("this copy not found");
                 return;

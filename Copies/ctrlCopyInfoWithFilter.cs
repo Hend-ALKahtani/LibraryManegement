@@ -58,7 +58,9 @@ namespace LibraryManegement
                         break;
                     }
             }
-            if (CopySelected != null)
+            //Rais event just when search and find copy otherwise not rais
+            //and we just call OnCopySelected only if there is method regist in event
+            if (CopySelected != null && ctrlCopyDetails1.CopyInfo!=null )
                 OnCopySelected(new EventCopySelectArg(CopyInfo.CopyID, CopyInfo.BookID));
         }
 

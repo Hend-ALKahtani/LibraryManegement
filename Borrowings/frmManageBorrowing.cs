@@ -105,8 +105,22 @@ namespace LibraryManegement
          
          */
 
+        private bool CheckingIsExistRow()
+        {
+            if (dgListBorrowings.Rows.Count == 0 || dgListBorrowings.CurrentRow == null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+          if(dgListBorrowings.Rows.Count==0 || dgListBorrowings.CurrentRow==null)
+            {
+                e.Cancel=true;
+                return;
+            }
             int BorrowingID = (int)dgListBorrowings.CurrentRow.Cells[0].Value;
             clsBorrowing borrowing = clsBorrowing.FindByBorrowingID(BorrowingID);
             if (borrowing == null)
@@ -117,7 +131,8 @@ namespace LibraryManegement
             clsMember member = clsMember.Find(borrowing.MemberID);
             bool MemberHasUnpaidFines=member.IsMemberHasUnPaidFines();
             bool IsCopyIssued = borrowing.IsCopyIssued();
-            extendDueDateToolStripMenuItem.Enabled = (IsCopyIssued && !MemberHasUnpaidFines);
+            bool IsDueDateOver = borrowing.IsDueDateOver;
+            extendDueDateToolStripMenuItem.Enabled = (IsCopyIssued && !MemberHasUnpaidFines &&!IsDueDateOver);
             bool isAuthorizedToReportLost=SecurityManager.IsAthorized(typeof(clsBorrowing), nameof(clsBorrowing.ReportLostCopy), Global.CurrentUser.UserName);
             bool CanReport = borrowing.CanReportAsLost();
             reportToolStripMenuItem.Enabled = (isAuthorizedToReportLost && CanReport);
@@ -125,6 +140,10 @@ namespace LibraryManegement
 
         private void extendDueDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(!CheckingIsExistRow())
+            {
+                return;
+            }
             int BorrowingID = (int)dgListBorrowings.CurrentRow.Cells[0].Value;
             clsBorrowing borrowing = clsBorrowing.FindByBorrowingID(BorrowingID);
             if (borrowing != null)
@@ -144,6 +163,10 @@ namespace LibraryManegement
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             int BorrowingID = (int)dgListBorrowings.CurrentRow.Cells[0].Value;
             clsBorrowing borrowing = clsBorrowing.FindByBorrowingID(BorrowingID);
             if (borrowing == null)
@@ -202,6 +225,13 @@ namespace LibraryManegement
             }
             textBox1.Visible= true;
             textBox1.Text = "";
+        }
+
+        private void btnBorrowing_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateBorrowings frm=new frmAddUpdateBorrowings();
+            frm.SaveBorrowing += ShowUpdateData;
+            frm.ShowDialog();
         }
     }
 }

@@ -44,6 +44,12 @@ namespace LibraryManegement
             lblBookTitle.Text = _Borrowing.CopyInfo.BookInfo.BookTitle;
             lblMemberName.Text = _Borrowing.MemberInfo.PersonInfo.FullName;
             lblRetunDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblDuDate.Text = _Borrowing.DueDate.ToString("dd/MM/yyyy");
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -52,6 +52,11 @@ namespace LibraryManegement
 
         private void bookCopiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          if(!string.Equals(Global.CurrentUser.UserName,"Admin",StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Only Admin Can Edit This Screen");
+                return;
+            }
             frmListCopiesOfBooks frm = new frmListCopiesOfBooks();
             frm.ShowDialog();
         }
@@ -73,5 +78,7 @@ namespace LibraryManegement
             frmFines frm=new frmFines();
             frm.ShowDialog();
         }
+
+       
     }
 }

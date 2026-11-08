@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblMode = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbMemberInfo = new System.Windows.Forms.TabPage();
+            this.ctrlMemberInfoWithFilter1 = new LibraryManegement.ctrlMemberInfoWithFilter();
             this.btnNext = new System.Windows.Forms.Button();
             this.tpCopyInfo = new System.Windows.Forms.TabPage();
             this.btnNext2 = new System.Windows.Forms.Button();
+            this.ctrlCopyInfoWithFilter1 = new LibraryManegement.ctrlCopyInfoWithFilter();
             this.tpBorrowingInfo = new System.Windows.Forms.TabPage();
+            this.lblDueDate = new System.Windows.Forms.Label();
             this.dtDueDate = new System.Windows.Forms.DateTimePicker();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblStatues = new System.Windows.Forms.Label();
@@ -50,44 +56,78 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.lblMode = new System.Windows.Forms.Label();
-            this.ctrlMemberInfoWithFilter1 = new LibraryManegement.ctrlMemberInfoWithFilter();
-            this.ctrlCopyInfoWithFilter1 = new LibraryManegement.ctrlCopyInfoWithFilter();
-            this.lblDueDate = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tbMemberInfo.SuspendLayout();
             this.tpCopyInfo.SuspendLayout();
             this.tpBorrowingInfo.SuspendLayout();
             this.SuspendLayout();
             // 
+            // btnSave
+            // 
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(1082, 683);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(976, 683);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // lblMode
+            // 
+            this.lblMode.AutoSize = true;
+            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMode.Location = new System.Drawing.Point(444, 28);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(76, 25);
+            this.lblMode.TabIndex = 3;
+            this.lblMode.Text = "label9";
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tbMemberInfo);
             this.tabControl1.Controls.Add(this.tpCopyInfo);
             this.tabControl1.Controls.Add(this.tpBorrowingInfo);
-            this.tabControl1.Location = new System.Drawing.Point(12, 59);
+            this.tabControl1.Location = new System.Drawing.Point(12, 56);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1165, 622);
+            this.tabControl1.Size = new System.Drawing.Size(1166, 621);
             this.tabControl1.TabIndex = 0;
             // 
             // tbMemberInfo
             // 
+            this.tbMemberInfo.BackColor = System.Drawing.Color.CadetBlue;
             this.tbMemberInfo.Controls.Add(this.ctrlMemberInfoWithFilter1);
             this.tbMemberInfo.Controls.Add(this.btnNext);
             this.tbMemberInfo.Location = new System.Drawing.Point(4, 22);
             this.tbMemberInfo.Name = "tbMemberInfo";
             this.tbMemberInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMemberInfo.Size = new System.Drawing.Size(1157, 596);
+            this.tbMemberInfo.Size = new System.Drawing.Size(1158, 595);
             this.tbMemberInfo.TabIndex = 0;
-            this.tbMemberInfo.Text = "tabPage1";
-            this.tbMemberInfo.UseVisualStyleBackColor = true;
+            this.tbMemberInfo.Text = "Select Member";
+            // 
+            // ctrlMemberInfoWithFilter1
+            // 
+            this.ctrlMemberInfoWithFilter1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlMemberInfoWithFilter1.EnabledFilter = true;
+            this.ctrlMemberInfoWithFilter1.Location = new System.Drawing.Point(13, 20);
+            this.ctrlMemberInfoWithFilter1.Name = "ctrlMemberInfoWithFilter1";
+            this.ctrlMemberInfoWithFilter1.Size = new System.Drawing.Size(1044, 572);
+            this.ctrlMemberInfoWithFilter1.TabIndex = 4;
+            this.ctrlMemberInfoWithFilter1.MemberSelect += new System.EventHandler<LibraryManegement.ctrlMemberInfoWithFilter.EventSelectMemberArg>(this.ctrlMemberInfoWithFilter1_MemberSelect);
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(1066, 537);
+            this.btnNext.Location = new System.Drawing.Point(1063, 481);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 3;
@@ -97,15 +137,15 @@
             // 
             // tpCopyInfo
             // 
+            this.tpCopyInfo.BackColor = System.Drawing.Color.CadetBlue;
             this.tpCopyInfo.Controls.Add(this.btnNext2);
             this.tpCopyInfo.Controls.Add(this.ctrlCopyInfoWithFilter1);
             this.tpCopyInfo.Location = new System.Drawing.Point(4, 22);
             this.tpCopyInfo.Name = "tpCopyInfo";
             this.tpCopyInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCopyInfo.Size = new System.Drawing.Size(1157, 596);
+            this.tpCopyInfo.Size = new System.Drawing.Size(1158, 595);
             this.tpCopyInfo.TabIndex = 1;
-            this.tpCopyInfo.Text = "tabPage2";
-            this.tpCopyInfo.UseVisualStyleBackColor = true;
+            this.tpCopyInfo.Text = "Select Copy";
             // 
             // btnNext2
             // 
@@ -117,8 +157,18 @@
             this.btnNext2.UseVisualStyleBackColor = true;
             this.btnNext2.Click += new System.EventHandler(this.btnNext2_Click);
             // 
+            // ctrlCopyInfoWithFilter1
+            // 
+            this.ctrlCopyInfoWithFilter1.EnabledFilerCopy = true;
+            this.ctrlCopyInfoWithFilter1.Location = new System.Drawing.Point(46, 21);
+            this.ctrlCopyInfoWithFilter1.Name = "ctrlCopyInfoWithFilter1";
+            this.ctrlCopyInfoWithFilter1.Size = new System.Drawing.Size(926, 385);
+            this.ctrlCopyInfoWithFilter1.TabIndex = 0;
+            this.ctrlCopyInfoWithFilter1.CopySelected += new System.EventHandler<LibraryManegement.ctrlCopyInfoWithFilter.EventCopySelectArg>(this.ctrlCopyInfoWithFilter1_CopySelected);
+            // 
             // tpBorrowingInfo
             // 
+            this.tpBorrowingInfo.BackColor = System.Drawing.Color.CadetBlue;
             this.tpBorrowingInfo.Controls.Add(this.lblDueDate);
             this.tpBorrowingInfo.Controls.Add(this.dtDueDate);
             this.tpBorrowingInfo.Controls.Add(this.lblUserName);
@@ -139,10 +189,19 @@
             this.tpBorrowingInfo.Location = new System.Drawing.Point(4, 22);
             this.tpBorrowingInfo.Name = "tpBorrowingInfo";
             this.tpBorrowingInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBorrowingInfo.Size = new System.Drawing.Size(1157, 596);
+            this.tpBorrowingInfo.Size = new System.Drawing.Size(1158, 595);
             this.tpBorrowingInfo.TabIndex = 2;
-            this.tpBorrowingInfo.Text = "tabPage3";
-            this.tpBorrowingInfo.UseVisualStyleBackColor = true;
+            this.tpBorrowingInfo.Text = "Borrowing Info";
+            // 
+            // lblDueDate
+            // 
+            this.lblDueDate.AutoSize = true;
+            this.lblDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDueDate.Location = new System.Drawing.Point(502, 52);
+            this.lblDueDate.Name = "lblDueDate";
+            this.lblDueDate.Size = new System.Drawing.Size(39, 20);
+            this.lblDueDate.TabIndex = 17;
+            this.lblDueDate.Text = "???";
             // 
             // dtDueDate
             // 
@@ -302,71 +361,16 @@
             this.txtNote.Size = new System.Drawing.Size(293, 79);
             this.txtNote.TabIndex = 0;
             // 
-            // btnSave
-            // 
-            this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(1082, 683);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(976, 683);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // lblMode
-            // 
-            this.lblMode.AutoSize = true;
-            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.Location = new System.Drawing.Point(444, 28);
-            this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(76, 25);
-            this.lblMode.TabIndex = 3;
-            this.lblMode.Text = "label9";
-            // 
-            // ctrlMemberInfoWithFilter1
-            // 
-            this.ctrlMemberInfoWithFilter1.EnabledFilter = true;
-            this.ctrlMemberInfoWithFilter1.Location = new System.Drawing.Point(3, 0);
-            this.ctrlMemberInfoWithFilter1.Name = "ctrlMemberInfoWithFilter1";
-            this.ctrlMemberInfoWithFilter1.Size = new System.Drawing.Size(1046, 572);
-            this.ctrlMemberInfoWithFilter1.TabIndex = 4;
-            // 
-            // ctrlCopyInfoWithFilter1
-            // 
-            this.ctrlCopyInfoWithFilter1.EnabledFilerCopy = true;
-            this.ctrlCopyInfoWithFilter1.Location = new System.Drawing.Point(64, 18);
-            this.ctrlCopyInfoWithFilter1.Name = "ctrlCopyInfoWithFilter1";
-            this.ctrlCopyInfoWithFilter1.Size = new System.Drawing.Size(926, 385);
-            this.ctrlCopyInfoWithFilter1.TabIndex = 0;
-            // 
-            // lblDueDate
-            // 
-            this.lblDueDate.AutoSize = true;
-            this.lblDueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDueDate.Location = new System.Drawing.Point(502, 52);
-            this.lblDueDate.Name = "lblDueDate";
-            this.lblDueDate.Size = new System.Drawing.Size(39, 20);
-            this.lblDueDate.TabIndex = 17;
-            this.lblDueDate.Text = "???";
-            // 
             // frmAddUpdateBorrowings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1190, 749);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblMode);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.tabControl1);
             this.Name = "frmAddUpdateBorrowings";
             this.Text = "frmBorrowings";
             this.Load += new System.EventHandler(this.frmBorrowings_Load);
@@ -381,18 +385,25 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tbMemberInfo;
-        private System.Windows.Forms.TabPage tpCopyInfo;
-        private System.Windows.Forms.TabPage tpBorrowingInfo;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblMode;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tbMemberInfo;
+        private ctrlMemberInfoWithFilter ctrlMemberInfoWithFilter1;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.TabPage tpCopyInfo;
         private System.Windows.Forms.Button btnNext2;
         private ctrlCopyInfoWithFilter ctrlCopyInfoWithFilter1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNote;
+        private System.Windows.Forms.TabPage tpBorrowingInfo;
+        private System.Windows.Forms.Label lblDueDate;
+        private System.Windows.Forms.DateTimePicker dtDueDate;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label lblStatues;
+        private System.Windows.Forms.Label lblBorrowDate;
+        private System.Windows.Forms.Label lblMemberID;
+        private System.Windows.Forms.Label lblCopyID;
+        private System.Windows.Forms.Label lblBorrowingID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -400,15 +411,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblMemberID;
-        private System.Windows.Forms.Label lblCopyID;
-        private System.Windows.Forms.Label lblBorrowingID;
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Label lblStatues;
-        private System.Windows.Forms.Label lblBorrowDate;
-        private System.Windows.Forms.DateTimePicker dtDueDate;
-        private ctrlMemberInfoWithFilter ctrlMemberInfoWithFilter1;
-        private System.Windows.Forms.Label lblMode;
-        private System.Windows.Forms.Label lblDueDate;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNote;
     }
 }

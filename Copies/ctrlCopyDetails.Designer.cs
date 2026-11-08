@@ -39,7 +39,6 @@
             this.lblBookTitle = new System.Windows.Forms.Label();
             this.lblCopyID = new System.Windows.Forms.Label();
             this.llblShowBookDetails = new System.Windows.Forms.LinkLabel();
-            this.llblEditeCopy = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -154,23 +153,11 @@
             this.llblShowBookDetails.Text = "Book Info";
             this.llblShowBookDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblShowBookDetails_LinkClicked);
             // 
-            // llblEditeCopy
-            // 
-            this.llblEditeCopy.AutoSize = true;
-            this.llblEditeCopy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblEditeCopy.Location = new System.Drawing.Point(714, 216);
-            this.llblEditeCopy.Name = "llblEditeCopy";
-            this.llblEditeCopy.Size = new System.Drawing.Size(100, 24);
-            this.llblEditeCopy.TabIndex = 10;
-            this.llblEditeCopy.TabStop = true;
-            this.llblEditeCopy.Text = "Edit Copy";
-            // 
             // ctrlCopyDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.llblShowBookDetails);
-            this.Controls.Add(this.llblEditeCopy);
             this.Controls.Add(this.lblCopyID);
             this.Controls.Add(this.lblBookTitle);
             this.Controls.Add(this.lblBarcode);
@@ -201,6 +188,5 @@
         private System.Windows.Forms.Label lblBookTitle;
         private System.Windows.Forms.Label lblCopyID;
         private System.Windows.Forms.LinkLabel llblShowBookDetails;
-        private System.Windows.Forms.LinkLabel llblEditeCopy;
     }
 }

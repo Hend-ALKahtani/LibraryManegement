@@ -62,6 +62,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage1.Controls.Add(this.btnNext);
             this.tabPage1.Controls.Add(this.ctrlBookInfoWithFilter1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -70,7 +71,6 @@
             this.tabPage1.Size = new System.Drawing.Size(1001, 611);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnNext
             // 
@@ -84,6 +84,7 @@
             // 
             // tpCopyInfo
             // 
+            this.tpCopyInfo.BackColor = System.Drawing.Color.LightBlue;
             this.tpCopyInfo.Controls.Add(this.cbStatusCopy);
             this.tpCopyInfo.Controls.Add(this.label6);
             this.tpCopyInfo.Controls.Add(this.btnRenewBarcode);
@@ -99,7 +100,6 @@
             this.tpCopyInfo.Size = new System.Drawing.Size(1001, 611);
             this.tpCopyInfo.TabIndex = 1;
             this.tpCopyInfo.Text = "tabPage2";
-            this.tpCopyInfo.UseVisualStyleBackColor = true;
             // 
             // cbStatusCopy
             // 
@@ -202,8 +202,9 @@
             // lblMode
             // 
             this.lblMode.AutoSize = true;
+            this.lblMode.BackColor = System.Drawing.Color.White;
             this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.lblMode.ForeColor = System.Drawing.Color.Black;
             this.lblMode.Location = new System.Drawing.Point(406, 26);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(85, 29);
@@ -243,6 +244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1126, 749);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);

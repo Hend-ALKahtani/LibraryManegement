@@ -40,11 +40,11 @@
             this.tbpFinesLost = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.tbpOverDueFines = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvOverDueFines = new System.Windows.Forms.DataGridView();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dgvOverDueFines = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.cbIsPaid = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLostCopyFines)).BeginInit();
@@ -69,7 +69,7 @@
             // 
             // dgvLostCopyFines
             // 
-            this.dgvLostCopyFines.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgvLostCopyFines.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvLostCopyFines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLostCopyFines.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvLostCopyFines.Location = new System.Drawing.Point(3, 103);
@@ -82,7 +82,7 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.paymentToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 26);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // paymentToolStripMenuItem
@@ -106,6 +106,7 @@
             // 
             // tbpAllFines
             // 
+            this.tbpAllFines.BackColor = System.Drawing.Color.LightBlue;
             this.tbpAllFines.Controls.Add(this.dgAllFines);
             this.tbpAllFines.Controls.Add(this.label5);
             this.tbpAllFines.Location = new System.Drawing.Point(4, 22);
@@ -114,16 +115,15 @@
             this.tbpAllFines.Size = new System.Drawing.Size(1080, 446);
             this.tbpAllFines.TabIndex = 2;
             this.tbpAllFines.Text = "tabPage3";
-            this.tbpAllFines.UseVisualStyleBackColor = true;
             // 
             // dgAllFines
             // 
-            this.dgAllFines.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgAllFines.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgAllFines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAllFines.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgAllFines.Location = new System.Drawing.Point(24, 96);
+            this.dgAllFines.Location = new System.Drawing.Point(6, 96);
             this.dgAllFines.Name = "dgAllFines";
-            this.dgAllFines.Size = new System.Drawing.Size(1025, 310);
+            this.dgAllFines.Size = new System.Drawing.Size(1068, 310);
             this.dgAllFines.TabIndex = 2;
             // 
             // label5
@@ -138,6 +138,7 @@
             // 
             // tbpFinesLost
             // 
+            this.tbpFinesLost.BackColor = System.Drawing.Color.LightBlue;
             this.tbpFinesLost.Controls.Add(this.label3);
             this.tbpFinesLost.Controls.Add(this.dgvLostCopyFines);
             this.tbpFinesLost.Location = new System.Drawing.Point(4, 22);
@@ -146,7 +147,6 @@
             this.tbpFinesLost.Size = new System.Drawing.Size(1080, 446);
             this.tbpFinesLost.TabIndex = 0;
             this.tbpFinesLost.Text = "tabPage1";
-            this.tbpFinesLost.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -160,6 +160,7 @@
             // 
             // tbpOverDueFines
             // 
+            this.tbpOverDueFines.BackColor = System.Drawing.Color.LightBlue;
             this.tbpOverDueFines.Controls.Add(this.label2);
             this.tbpOverDueFines.Controls.Add(this.dgvOverDueFines);
             this.tbpOverDueFines.Location = new System.Drawing.Point(4, 22);
@@ -168,7 +169,26 @@
             this.tbpOverDueFines.Size = new System.Drawing.Size(1080, 446);
             this.tbpOverDueFines.TabIndex = 1;
             this.tbpOverDueFines.Text = "tabPage2";
-            this.tbpOverDueFines.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(395, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(232, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Fines over Due Days";
+            // 
+            // dgvOverDueFines
+            // 
+            this.dgvOverDueFines.BackgroundColor = System.Drawing.Color.LightBlue;
+            this.dgvOverDueFines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOverDueFines.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvOverDueFines.Location = new System.Drawing.Point(18, 73);
+            this.dgvOverDueFines.Name = "dgvOverDueFines";
+            this.dgvOverDueFines.Size = new System.Drawing.Size(1056, 298);
+            this.dgvOverDueFines.TabIndex = 0;
             // 
             // txtFilter
             // 
@@ -204,26 +224,6 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Fines";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(395, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(232, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Fines over Due Days";
-            // 
-            // dgvOverDueFines
-            // 
-            this.dgvOverDueFines.BackgroundColor = System.Drawing.Color.LightSkyBlue;
-            this.dgvOverDueFines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOverDueFines.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvOverDueFines.Location = new System.Drawing.Point(18, 111);
-            this.dgvOverDueFines.Name = "dgvOverDueFines";
-            this.dgvOverDueFines.Size = new System.Drawing.Size(1045, 298);
-            this.dgvOverDueFines.TabIndex = 0;
-            // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(1020, 599);
@@ -252,6 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1200, 644);
             this.Controls.Add(this.cbIsPaid);
             this.Controls.Add(this.txtFilter);
@@ -260,6 +261,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "frmFines";
             this.Text = "frmFines";
             this.Load += new System.EventHandler(this.frmFines_Load);

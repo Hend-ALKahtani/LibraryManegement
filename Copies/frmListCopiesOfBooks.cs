@@ -22,6 +22,15 @@ namespace LibraryManegement
             InitializeComponent();
         }
 
+       private bool CheckingIsExistRow()
+        {
+            if(dgListCopyies.Rows.Count==0 || dgListCopyies.CurrentRow==null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void frmListCopiesOfBooks_Load(object sender, EventArgs e)
         {
             dgListCopyies.DataSource = _AllCopies;
@@ -137,7 +146,11 @@ namespace LibraryManegement
 
         private void deleteCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure to delete this copy","Confirm",MessageBoxButtons.OKCancel)==DialogResult.OK)
+           if(!CheckingIsExistRow())
+            {
+                return;
+            }
+            if (MessageBox.Show("Are you sure to delete this copy","Confirm",MessageBoxButtons.OKCancel)==DialogResult.OK)
             {
                 if(clsBookCopy.Delete((int)dgListCopyies.CurrentRow.Cells[0].Value))
                 {
@@ -153,6 +166,10 @@ namespace LibraryManegement
 
         private void showCopyDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             frmCopyDetails frm = new frmCopyDetails((int)dgListCopyies.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
@@ -191,11 +208,16 @@ namespace LibraryManegement
         }
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+            if(dgListCopyies.Rows.Count==0 || dgListCopyies.CurrentRow==null)
+            {
+                e.Cancel = true;
+                return;
+            }
             _FindBookCopy();
             if (copyInfo != null)
             {
                 bool isMatch = SecurityManager.IsAthorized(typeof(clsBookCopy), nameof(clsBookCopy.RenewBarcode), Global.CurrentUser.UserName);
-                renewBracodeToolStripMenuItem.Enabled = copyInfo.Condition == clsBookCopy.enStatusCopy.Damage && copyInfo.IsAvailable && isMatch;
+                //renewBracodeToolStripMenuItem.Enabled = copyInfo.Condition == clsBookCopy.enStatusCopy.Damage && copyInfo.IsAvailable && isMatch;
                 updateCopyToolStripMenuItem.Enabled = copyInfo.IsAvailable;
             
             }
@@ -221,9 +243,22 @@ namespace LibraryManegement
                         copyInfo.UpdateStatusOfCopy(clsBookCopy.enStatusCopy.Damage);
                         break;
                     }
+                case "Lost":
+                    {
+                        copyInfo.UpdateStatusOfCopy(clsBookCopy.enStatusCopy.Lost);
+                        copyInfo.LostingCopyFromLibrary();
+                        break;
+                    }
             }
             _RefreshData(null, null);
         
+        }
+
+        private void btnAdding_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateCopy frm=new frmAddUpdateCopy();
+            frm.CopySave += _RefreshData;
+            frm .ShowDialog();
         }
     }
 }

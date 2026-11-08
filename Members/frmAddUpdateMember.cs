@@ -133,5 +133,10 @@ namespace LibraryManegement
                 MessageBox.Show("Data not Saved");
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

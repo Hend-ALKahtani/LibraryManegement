@@ -101,7 +101,15 @@ namespace LibraryManegement
                 e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
             }
         }
-
+        private bool CheckingIsExistRow()
+        {
+            if (dgvBooks.Rows.Count == 0 || dgvBooks.CurrentRow == null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             string ColumnName = _GetColumnName();
@@ -137,6 +145,10 @@ namespace LibraryManegement
 
         private void updateBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(!CheckingIsExistRow())
+                {
+                    return;
+                }
             frmAddUpdateBook frm = new frmAddUpdateBook((int)dgvBooks.CurrentRow.Cells[0].Value);
             frm.SaveBook += _RefreshData;
             frm.ShowDialog();
@@ -144,7 +156,11 @@ namespace LibraryManegement
 
         private void deleteBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to delete this book","Confirm",MessageBoxButtons.OKCancel)==DialogResult.OK)
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
+            if (MessageBox.Show("Are you sure you want to delete this book","Confirm",MessageBoxButtons.OKCancel)==DialogResult.OK)
             {
                 if (clsBook.Delete((int)dgvBooks.CurrentRow.Cells[0].Value))
                 {
@@ -160,7 +176,28 @@ namespace LibraryManegement
 
         private void showBookInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             frmShowBookInfo frm = new frmShowBookInfo((int)dgvBooks.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            //to avoid Exception if there is not row
+            if(dgvBooks.Rows.Count==0 || dgvBooks.CurrentRow==null)
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateBook frm= new frmAddUpdateBook();
+            frm.SaveBook += _RefreshData;
             frm.ShowDialog();
         }
     }

@@ -23,10 +23,23 @@ namespace LibraryManegement
         {
             InitializeComponent();
         }
-        
+
+        private bool CheckingIsExistRow()
+        {
+            if (grid.Rows.Count == 0 || grid.CurrentRow == null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           int FineID = (int)grid.CurrentRow.Cells[0].Value;
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
+            int FineID = (int)grid.CurrentRow.Cells[0].Value;
             clsFines fines = clsFines.Find(FineID);
             if (fines == null)
             {
@@ -58,7 +71,9 @@ namespace LibraryManegement
 
         private void frmFines_Load(object sender, EventArgs e)
         {
-            tabControl1_SelectedIndexChanged(null,null);
+            tabControl1_SelectedIndexChanged(null, null);
+
+            cbFilter.SelectedIndex = 0;
             dgAllFines.DataSource = _AllFine;
             dgvLostCopyFines.DataSource = _AllUnPaidLostCopyFine;
             dgvOverDueFines.DataSource = _AllUnPaidOverDue;
@@ -125,13 +140,15 @@ namespace LibraryManegement
                 _dtCurrent.DefaultView.RowFilter = "";
                 return;
             }
-            if(valueName=="BorrowingID" || valueName=="FineType")
+            if (valueName == "BorrowingID" || valueName == "FineType")
             {
-                _dtCurrent.DefaultView.RowFilter = string.Format("[{0}]={1}",valueName,value );
-               
+                _dtCurrent.DefaultView.RowFilter = string.Format("[{0}]={1}", valueName, value);
+
             }
-            else
+            else if (valueName == "LibraryCardNumber")
                 _dtCurrent.DefaultView.RowFilter = string.Format("[{0}] like '{1}%'", valueName, value);
+            else
+                _dtCurrent.DefaultView.RowFilter = string.Format("[{0}]={1}", valueName, value);
 
         }
        private void _RefreshDataAfterPaymentOfAllFines()
@@ -188,7 +205,7 @@ namespace LibraryManegement
 
             if(cbIsPaid.Text=="All")
             {
-                _SetDefaultViewOfDataTable(null, Col);
+                _SetDefaultViewOfDataTable("", Col);
             }
             else if(cbIsPaid.Text=="Yes")
                 _SetDefaultViewOfDataTable(true, Col);
@@ -219,6 +236,11 @@ namespace LibraryManegement
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+            if(grid.Rows.Count==0 || grid.CurrentRow==null)
+            {
+                e.Cancel = true;
+                return;
+            }
             if(tabControl1.SelectedIndex!=0)
             {
                 return;

@@ -41,10 +41,12 @@
             // 
             // dgListBorrowings
             // 
-            this.dgListBorrowings.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgListBorrowings.AllowUserToAddRows = false;
+            this.dgListBorrowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgListBorrowings.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgListBorrowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgListBorrowings.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgListBorrowings.Location = new System.Drawing.Point(40, 164);
+            this.dgListBorrowings.Location = new System.Drawing.Point(-10, 182);
             this.dgListBorrowings.Name = "dgListBorrowings";
             this.dgListBorrowings.Size = new System.Drawing.Size(1232, 183);
             this.dgListBorrowings.TabIndex = 0;
@@ -54,12 +56,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.returnCopyToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // returnCopyToolStripMenuItem
             // 
             this.returnCopyToolStripMenuItem.Name = "returnCopyToolStripMenuItem";
-            this.returnCopyToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.returnCopyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.returnCopyToolStripMenuItem.Text = "Return Copy";
             this.returnCopyToolStripMenuItem.Click += new System.EventHandler(this.returnCopyToolStripMenuItem_Click);
             // 
@@ -99,7 +102,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 450);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1317, 450);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFilter);

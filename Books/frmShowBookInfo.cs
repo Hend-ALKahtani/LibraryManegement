@@ -13,9 +13,8 @@ namespace LibraryManegement
 {
     public partial class frmShowBookInfo : Form
     {
-        private int _BookID;
-        DataTable _AllCopiesforBook;
-        public frmShowBookInfo(int bookID)
+       private int _BookID;
+       public frmShowBookInfo(int bookID)
         {
             InitializeComponent();
             _BookID = bookID;
@@ -32,8 +31,10 @@ namespace LibraryManegement
             clsBook book = clsBook.Find(_BookID);
             if (book != null)
             {
-                 _AllCopiesforBook = book.GetAllCopiesForBook();
-                dgvCopiesForBooks.DataSource = _AllCopiesforBook;
+                DataTable _AllCopiesforBook=book.GetAllCopiesForBook();
+                DataTable _CopiesOfBook = _AllCopiesforBook.DefaultView.ToTable(true, "CopyID", "BookID",
+                    "Barcode", "IsAvailable", "CopyStatus");
+                dgvCopiesForBooks.DataSource = _CopiesOfBook;
             }
         }
     }

@@ -51,8 +51,9 @@
             // lblMode
             // 
             this.lblMode.AutoSize = true;
+            this.lblMode.BackColor = System.Drawing.Color.LightBlue;
             this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.lblMode.ForeColor = System.Drawing.Color.Black;
             this.lblMode.Location = new System.Drawing.Point(416, 35);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(85, 29);
@@ -196,6 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(966, 474);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);

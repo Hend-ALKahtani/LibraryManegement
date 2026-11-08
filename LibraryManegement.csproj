@@ -410,7 +410,9 @@
   <ItemGroup>
     <None Include="Resources\Add New User 72.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_fkbzy9fkbzy9fkbz.jpeg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Gemini_Generated_Image_4u7wuh4u7wuh4u7w.png" />
   </ItemGroup>
@@ -422,6 +424,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add Person 402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_utsh10utsh10utsh.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_utsh10utsh10utsh1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_1ncga1ncga1ncga1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_iext8piext8piext.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_5tb6jo5tb6jo5tb6.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

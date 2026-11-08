@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using static LibraryManegement.frmAddUpdateMember;
 
@@ -150,6 +151,15 @@ namespace LibraryManegement
             dgvMembers.DataSource= _AllMembers;
             lblRecord.Text = dgvMembers.Rows.Count.ToString();
         }
+        private bool CheckingIsExistRow()
+        {
+            if (dgvMembers.Rows.Count == 0 || dgvMembers.CurrentRow == null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void addMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdateMember frm = new frmAddUpdateMember();
@@ -159,6 +169,10 @@ namespace LibraryManegement
 
         private void updateMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           if (!CheckingIsExistRow())
+            {
+                return;
+            }
             frmAddUpdateMember frm = new frmAddUpdateMember((int)dgvMembers.CurrentRow.Cells[0].Value);
             frm.MemberSave += _RefreshData;
             frm.ShowDialog();
@@ -166,6 +180,10 @@ namespace LibraryManegement
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             if (MessageBox.Show("Are you sure you want to delete Membership for this Person","Waring",MessageBoxButtons.OKCancel)==DialogResult.OK)
             {
                 if (clsMember.DeleteMembership((int)dgvMembers.CurrentRow.Cells[0].Value))
@@ -182,6 +200,10 @@ namespace LibraryManegement
 
         private void deleteMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             if (MessageBox.Show("Are you sure you want to delete this member", "Waring", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (clsMember.DeleteMember((int)dgvMembers.CurrentRow.Cells[0].Value))
@@ -200,8 +222,28 @@ namespace LibraryManegement
 
         private void showMemberInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             frmMemberInfo frm = new frmMemberInfo((int)dgvMembers.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateMember frm = new frmAddUpdateMember();
+            frm.MemberSave += _RefreshData;
+            frm.ShowDialog();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if(dgvMembers.Rows.Count==0 || dgvMembers.CurrentRow==null)
+            {
+                e.Cancel = true;
+                return;
+            }
         }
     }
 }

@@ -38,13 +38,14 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.damageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.renewBracodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.lblCountRecords = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbIsVailable = new System.Windows.Forms.ComboBox();
+            this.btnAddingCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgListCopyies)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,8 @@
             // dgListCopyies
             // 
             this.dgListCopyies.AllowUserToAddRows = false;
-            this.dgListCopyies.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgListCopyies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgListCopyies.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgListCopyies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgListCopyies.ContextMenuStrip = this.contextMenuStrip1;
             this.dgListCopyies.Location = new System.Drawing.Point(44, 158);
@@ -66,30 +68,29 @@
             this.addCopyToolStripMenuItem,
             this.deleteCopyToolStripMenuItem,
             this.showCopyDetailsToolStripMenuItem,
-            this.updateCopyToolStripMenuItem,
-            this.renewBracodeToolStripMenuItem});
+            this.updateCopyToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(333, 92);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addCopyToolStripMenuItem
             // 
             this.addCopyToolStripMenuItem.Name = "addCopyToolStripMenuItem";
-            this.addCopyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.addCopyToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
             this.addCopyToolStripMenuItem.Text = "Add Copy";
             this.addCopyToolStripMenuItem.Click += new System.EventHandler(this.addCopyToolStripMenuItem_Click);
             // 
             // deleteCopyToolStripMenuItem
             // 
             this.deleteCopyToolStripMenuItem.Name = "deleteCopyToolStripMenuItem";
-            this.deleteCopyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.deleteCopyToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
             this.deleteCopyToolStripMenuItem.Text = "Delete Copy";
             this.deleteCopyToolStripMenuItem.Click += new System.EventHandler(this.deleteCopyToolStripMenuItem_Click);
             // 
             // showCopyDetailsToolStripMenuItem
             // 
             this.showCopyDetailsToolStripMenuItem.Name = "showCopyDetailsToolStripMenuItem";
-            this.showCopyDetailsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.showCopyDetailsToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
             this.showCopyDetailsToolStripMenuItem.Text = "Show Copy Details";
             this.showCopyDetailsToolStripMenuItem.Click += new System.EventHandler(this.showCopyDetailsToolStripMenuItem_Click);
             // 
@@ -98,38 +99,38 @@
             this.updateCopyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.goodToolStripMenuItem,
-            this.damageToolStripMenuItem});
+            this.damageToolStripMenuItem,
+            this.lostToolStripMenuItem});
             this.updateCopyToolStripMenuItem.Name = "updateCopyToolStripMenuItem";
-            this.updateCopyToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.updateCopyToolStripMenuItem.Text = "Update Stause Of Copy";
+            this.updateCopyToolStripMenuItem.Size = new System.Drawing.Size(332, 22);
+            this.updateCopyToolStripMenuItem.Text = "Update Stause Of Copy(Only if Copy Is Available)";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.DoubleClick += new System.EventHandler(this.Status_DoubleClick);
             // 
             // goodToolStripMenuItem
             // 
             this.goodToolStripMenuItem.Name = "goodToolStripMenuItem";
-            this.goodToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.goodToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.goodToolStripMenuItem.Text = "Good";
             this.goodToolStripMenuItem.DoubleClick += new System.EventHandler(this.Status_DoubleClick);
             // 
             // damageToolStripMenuItem
             // 
             this.damageToolStripMenuItem.Name = "damageToolStripMenuItem";
-            this.damageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.damageToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.damageToolStripMenuItem.Text = "Damage";
             this.damageToolStripMenuItem.DoubleClick += new System.EventHandler(this.Status_DoubleClick);
             // 
-            // renewBracodeToolStripMenuItem
+            // lostToolStripMenuItem
             // 
-            this.renewBracodeToolStripMenuItem.Name = "renewBracodeToolStripMenuItem";
-            this.renewBracodeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.renewBracodeToolStripMenuItem.Text = "Renew Bracode";
-            this.renewBracodeToolStripMenuItem.Click += new System.EventHandler(this.renewBracodeToolStripMenuItem_Click);
+            this.lostToolStripMenuItem.Name = "lostToolStripMenuItem";
+            this.lostToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.lostToolStripMenuItem.Text = "Lost";
             // 
             // label1
             // 
@@ -200,11 +201,23 @@
             this.cbIsVailable.Size = new System.Drawing.Size(121, 21);
             this.cbIsVailable.TabIndex = 7;
             // 
+            // btnAddingCopy
+            // 
+            this.btnAddingCopy.Location = new System.Drawing.Point(801, 62);
+            this.btnAddingCopy.Name = "btnAddingCopy";
+            this.btnAddingCopy.Size = new System.Drawing.Size(94, 72);
+            this.btnAddingCopy.TabIndex = 8;
+            this.btnAddingCopy.Text = "Adding Copy";
+            this.btnAddingCopy.UseVisualStyleBackColor = true;
+            this.btnAddingCopy.Click += new System.EventHandler(this.btnAdding_Click);
+            // 
             // frmListCopiesOfBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1069, 536);
+            this.Controls.Add(this.btnAddingCopy);
             this.Controls.Add(this.cbIsVailable);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblCountRecords);
@@ -236,9 +249,10 @@
         private System.Windows.Forms.ToolStripMenuItem deleteCopyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showCopyDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateCopyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem renewBracodeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goodToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem damageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lostToolStripMenuItem;
+        private System.Windows.Forms.Button btnAddingCopy;
     }
 }

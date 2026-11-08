@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlCopyDetails1 = new LibraryManegement.ctrlCopyDetails();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlCopyDetails1 = new LibraryManegement.ctrlCopyDetails();
             this.SuspendLayout();
-            // 
-            // ctrlCopyDetails1
-            // 
-            this.ctrlCopyDetails1.Location = new System.Drawing.Point(25, 123);
-            this.ctrlCopyDetails1.Name = "ctrlCopyDetails1";
-            this.ctrlCopyDetails1.Size = new System.Drawing.Size(866, 265);
-            this.ctrlCopyDetails1.TabIndex = 0;
-            this.ctrlCopyDetails1.Load += new System.EventHandler(this.ctrlCopyDetails1_Load);
             // 
             // label1
             // 
@@ -50,10 +42,19 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Copy Details";
             // 
+            // ctrlCopyDetails1
+            // 
+            this.ctrlCopyDetails1.Location = new System.Drawing.Point(25, 123);
+            this.ctrlCopyDetails1.Name = "ctrlCopyDetails1";
+            this.ctrlCopyDetails1.Size = new System.Drawing.Size(866, 265);
+            this.ctrlCopyDetails1.TabIndex = 0;
+            this.ctrlCopyDetails1.Load += new System.EventHandler(this.ctrlCopyDetails1_Load);
+            // 
             // frmCopyDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(903, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ctrlCopyDetails1);
@@ -65,8 +66,7 @@
         }
 
         #endregion
-
-        private ctrlCopyDetails ctrlCopyDetails1;
         private System.Windows.Forms.Label label1;
+        private ctrlCopyDetails ctrlCopyDetails1;
     }
 }

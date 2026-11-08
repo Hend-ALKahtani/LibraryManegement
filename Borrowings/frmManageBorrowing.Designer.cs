@@ -37,13 +37,18 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnBorrowing = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgListBorrowings)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgListBorrowings
             // 
-            this.dgListBorrowings.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.dgListBorrowings.AllowUserToAddRows = false;
+            this.dgListBorrowings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgListBorrowings.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgListBorrowings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgListBorrowings.ContextMenuStrip = this.contextMenuStrip1;
             this.dgListBorrowings.Location = new System.Drawing.Point(12, 167);
@@ -58,7 +63,7 @@
             this.extendDueDateToolStripMenuItem,
             this.reportToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 70);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addNewBorrowingToolStripMenuItem
@@ -73,6 +78,7 @@
             this.extendDueDateToolStripMenuItem.Name = "extendDueDateToolStripMenuItem";
             this.extendDueDateToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.extendDueDateToolStripMenuItem.Text = "Extend Due Date";
+            this.extendDueDateToolStripMenuItem.ToolTipText = "Only for Member has not Fines & Date Due is\'t Over";
             this.extendDueDateToolStripMenuItem.Click += new System.EventHandler(this.extendDueDateToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
@@ -80,6 +86,7 @@
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.reportToolStripMenuItem.Text = "Report Lost Copy";
+            this.reportToolStripMenuItem.ToolTipText = "Admin Can do this & The copy must be Issued or OverDue";
             this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // textBox1
@@ -117,11 +124,40 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(690, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(186, 24);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Manage Borrowing";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 6000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
+            // 
+            // btnBorrowing
+            // 
+            this.btnBorrowing.Location = new System.Drawing.Point(1011, 58);
+            this.btnBorrowing.Name = "btnBorrowing";
+            this.btnBorrowing.Size = new System.Drawing.Size(102, 63);
+            this.btnBorrowing.TabIndex = 5;
+            this.btnBorrowing.Text = "New Borrowing";
+            this.btnBorrowing.UseVisualStyleBackColor = true;
+            this.btnBorrowing.Click += new System.EventHandler(this.btnBorrowing_Click);
+            // 
             // frmManageBorrowing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1366, 530);
+            this.Controls.Add(this.btnBorrowing);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.textBox1);
@@ -146,5 +182,8 @@
         private System.Windows.Forms.ToolStripMenuItem addNewBorrowingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extendDueDateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnBorrowing;
     }
 }

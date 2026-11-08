@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCountRecord = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +60,8 @@
             // dgvBooks
             // 
             this.dgvBooks.AllowUserToAddRows = false;
-            this.dgvBooks.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgvBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBooks.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooks.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvBooks.Location = new System.Drawing.Point(12, 297);
@@ -76,32 +78,33 @@
             this.showBookInfoToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(158, 92);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addNewBookToolStripMenuItem
             // 
             this.addNewBookToolStripMenuItem.Name = "addNewBookToolStripMenuItem";
-            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewBookToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.addNewBookToolStripMenuItem.Text = "Add New Book";
             this.addNewBookToolStripMenuItem.Click += new System.EventHandler(this.addNewBookToolStripMenuItem_Click);
             // 
             // updateBookToolStripMenuItem
             // 
             this.updateBookToolStripMenuItem.Name = "updateBookToolStripMenuItem";
-            this.updateBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateBookToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.updateBookToolStripMenuItem.Text = "Update Book";
             this.updateBookToolStripMenuItem.Click += new System.EventHandler(this.updateBookToolStripMenuItem_Click);
             // 
             // deleteBookToolStripMenuItem
             // 
             this.deleteBookToolStripMenuItem.Name = "deleteBookToolStripMenuItem";
-            this.deleteBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteBookToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.deleteBookToolStripMenuItem.Text = "Delete Book";
             this.deleteBookToolStripMenuItem.Click += new System.EventHandler(this.deleteBookToolStripMenuItem_Click);
             // 
             // showBookInfoToolStripMenuItem
             // 
             this.showBookInfoToolStripMenuItem.Name = "showBookInfoToolStripMenuItem";
-            this.showBookInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showBookInfoToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.showBookInfoToolStripMenuItem.Text = "Show Book Info";
             this.showBookInfoToolStripMenuItem.Click += new System.EventHandler(this.showBookInfoToolStripMenuItem_Click);
             // 
@@ -109,7 +112,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(413, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 29);
@@ -173,11 +176,23 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Record(s)";
             // 
+            // btnBook
+            // 
+            this.btnBook.Location = new System.Drawing.Point(808, 73);
+            this.btnBook.Name = "btnBook";
+            this.btnBook.Size = new System.Drawing.Size(135, 70);
+            this.btnBook.TabIndex = 8;
+            this.btnBook.Text = "Adding Book";
+            this.btnBook.UseVisualStyleBackColor = true;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
+            // 
             // frmListBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1047, 633);
+            this.Controls.Add(this.btnBook);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblCountRecord);
             this.Controls.Add(this.label2);
@@ -211,5 +226,6 @@
         private System.Windows.Forms.ToolStripMenuItem updateBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showBookInfoToolStripMenuItem;
+        private System.Windows.Forms.Button btnBook;
     }
 }

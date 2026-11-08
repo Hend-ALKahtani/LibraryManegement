@@ -174,8 +174,21 @@ namespace LibraryManegement
             _RefreshData();
         }
 
+        private bool CheckingIsExistRow()
+        {
+            if (dgvListPeople.Rows.Count == 0 || dgvListPeople.CurrentRow == null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void updatePersonInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(!CheckingIsExistRow())
+            {
+                return;
+            }
             frmAddUpdatePerson frmAddUpdatePerson = new frmAddUpdatePerson((int)dgvListPeople.CurrentRow.Cells[0].Value);
             frmAddUpdatePerson.EventSavePerson += frm_EvenetDataBack;
             frmAddUpdatePerson.ShowDialog();
@@ -183,6 +196,7 @@ namespace LibraryManegement
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CheckingIsExistRow();
             frmAddUpdatePerson frmAddUpdatePerson = new frmAddUpdatePerson();
             frmAddUpdatePerson.EventSavePerson += frm_EvenetDataBack;
             frmAddUpdatePerson.ShowDialog();
@@ -191,12 +205,20 @@ namespace LibraryManegement
 
         private void showPersonInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             frmShowPersonInfo frmShowPersonInfo = new frmShowPersonInfo((int)dgvListPeople.CurrentRow.Cells[0].Value);
             frmShowPersonInfo.ShowDialog();
         }
 
         private void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             if (clsPerson.DeletePerson((int)dgvListPeople.CurrentRow.Cells[0].Value))
             {
                 MessageBox.Show("Delete Successfully");
@@ -204,6 +226,16 @@ namespace LibraryManegement
             }
             else
                 MessageBox.Show("This Person was not delete");
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if(dgvListPeople.Rows.Count==0 || dgvListPeople.CurrentRow==null)
+            {
+                e.Cancel = true;
+                return;
+            }
+
         }
     }
 }

@@ -33,10 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.chRemember = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.chRemember = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,18 @@
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 7;
             // 
+            // chRemember
+            // 
+            this.chRemember.AutoSize = true;
+            this.chRemember.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chRemember.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chRemember.Location = new System.Drawing.Point(477, 302);
+            this.chRemember.Name = "chRemember";
+            this.chRemember.Size = new System.Drawing.Size(106, 20);
+            this.chRemember.TabIndex = 8;
+            this.chRemember.Text = "Remember Me";
+            this.chRemember.UseVisualStyleBackColor = true;
+            // 
             // btnLogin
             // 
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -105,7 +117,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox2.BackColor = System.Drawing.Color.SkyBlue;
             this.pictureBox2.Location = new System.Drawing.Point(355, -18);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(320, 520);
@@ -115,24 +127,12 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LibraryManegement.Properties.Resources.Gemini_Generated_Image_4u7wuh4u7wuh4u7w;
-            this.pictureBox1.Location = new System.Drawing.Point(-6, -85);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -79);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(363, 619);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // chRemember
-            // 
-            this.chRemember.AutoSize = true;
-            this.chRemember.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chRemember.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.chRemember.Location = new System.Drawing.Point(477, 302);
-            this.chRemember.Name = "chRemember";
-            this.chRemember.Size = new System.Drawing.Size(106, 20);
-            this.chRemember.TabIndex = 8;
-            this.chRemember.Text = "Remember Me";
-            this.chRemember.UseVisualStyleBackColor = true;
             // 
             // frmLogIn
             // 
@@ -150,6 +150,7 @@
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "frmLogIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogIn";
             this.Load += new System.EventHandler(this.frmLogIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

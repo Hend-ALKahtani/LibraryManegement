@@ -81,6 +81,7 @@ namespace LibraryManegement
            // _User.PassWord = txtNewPasswrd.Text.Trim();
             if (_User.Save())
             {
+                btnSave.Enabled = false;
                 MessageBox.Show("Update password successfully");
             }
             else

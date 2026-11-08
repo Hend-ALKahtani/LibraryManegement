@@ -12,13 +12,14 @@ namespace LibraryManegement
     {
         public static  clsUser CurrentUser;
         // public void RememberMe(string UserName,)
+       static string valuPassword = "Password";
+       static string valueUserName = "UserName";
+       static string Keyname = @"SOFTWARE\LibraryManegment";
+
         public static bool RememberMe(string UserName, string Password)
         {
             string KeyName = @"HKEY_CURRENT_USER\SOFTWARE\LibraryManegment";
-            string valuPassword = "Password";
-            string valueUserName = "UserName";
-            string Keyname = @"SOFTWARE\LibraryManegment";
-
+            
             try
             {
                 using (RegistryKey key = Registry.CurrentUser.CreateSubKey(Keyname))
@@ -39,16 +40,15 @@ namespace LibraryManegement
             }
             return false;
         }
+        
         public static bool CleareCredential()
         {
-            string KeyName = @"SOFTWARE\LibraryManegment";
-            string valuPassword = "Password";
-            string valueUserName = "UserName";
+            
             try
             {
                 using (RegistryKey basekey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
                 {
-                    using (RegistryKey key = basekey.OpenSubKey(KeyName, writable: true))
+                    using (RegistryKey key = basekey.OpenSubKey(Keyname, writable: true))
                     {
                         if (key != null)
                         {
@@ -70,9 +70,7 @@ namespace LibraryManegement
         }
         public static bool  LoadData(ref string  UserName,ref string PassWord)
         {
-            string KeyName = @"SOFTWARE\LibraryManegment";
-            string valuPassword = "Password";
-            string valueUserName = "UserName";
+            
 
            try
             {
@@ -80,7 +78,7 @@ namespace LibraryManegement
                 {
                     if (baseKey != null)
                     {
-                        using (RegistryKey key = baseKey.OpenSubKey(KeyName))
+                        using (RegistryKey key = baseKey.OpenSubKey(Keyname))
                         {
                             if (key != null)
                             {

@@ -31,7 +31,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.ctrlPersonCardWithFilter1 = new LibraryManegement.ctrlPersonCardWithFilter();
             this.tpMemberInfo = new System.Windows.Forms.TabPage();
             this.lblExpiryDate = new System.Windows.Forms.Label();
             this.lblDateMembership = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.lblMode = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.ctrlPersonCardWithFilter1 = new LibraryManegement.ctrlPersonCardWithFilter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpMemberInfo.SuspendLayout();
@@ -83,16 +83,9 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.EnableFilterBox = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(7, 6);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(937, 530);
-            this.ctrlPersonCardWithFilter1.TabIndex = 0;
-            // 
             // tpMemberInfo
             // 
+            this.tpMemberInfo.BackColor = System.Drawing.Color.LightBlue;
             this.tpMemberInfo.Controls.Add(this.lblExpiryDate);
             this.tpMemberInfo.Controls.Add(this.lblDateMembership);
             this.tpMemberInfo.Controls.Add(this.lblMemberID);
@@ -109,7 +102,6 @@
             this.tpMemberInfo.Size = new System.Drawing.Size(948, 599);
             this.tpMemberInfo.TabIndex = 1;
             this.tpMemberInfo.Text = "tabPage2";
-            this.tpMemberInfo.UseVisualStyleBackColor = true;
             // 
             // lblExpiryDate
             // 
@@ -224,17 +216,18 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(670, 699);
+            this.btnClose.Location = new System.Drawing.Point(668, 682);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(868, 699);
+            this.btnSave.Location = new System.Drawing.Point(813, 682);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
@@ -242,10 +235,20 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.LightBlue;
+            this.ctrlPersonCardWithFilter1.EnableFilterBox = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(7, 6);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(937, 530);
+            this.ctrlPersonCardWithFilter1.TabIndex = 0;
+            // 
             // frmAddUpdateMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1007, 749);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);

@@ -61,7 +61,12 @@ namespace LibraryManegement
                 }
                 if (!ctrlMemberInfoWithFilter1.MemberInfo.IsMembershipActive())
                 {
-                    MessageBox.Show("this memeber not more membership");
+                    MessageBox.Show("this membership is not Active");
+                    return;
+                }
+                if(ctrlMemberInfoWithFilter1.MemberInfo.IsExpireMembership)
+                {
+                    MessageBox.Show("Membership is Expire");
                     return;
                 }
                 if (ctrlMemberInfoWithFilter1.MemberInfo.IsMemberHasUnPaidFines())
@@ -124,8 +129,8 @@ namespace LibraryManegement
                 lblUserName.Text=Global.CurrentUser.UserName;
                 lblBorrowDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 lblDueDate.Text = DateTime.Now.AddDays(BorrowingInfo.DaysDue).ToString("dd/MM/yyyy");
-                dtDueDate.Value = DateTime.Now.AddDays(BorrowingInfo.DaysDue);
-                dtDueDate.MinDate = DateTime.Now;
+               // dtDueDate.Value = DateTime.Now.AddDays(BorrowingInfo.DaysDue);
+                //dtDueDate.MinDate = DateTime.Now;
                 return;
             }
             BorrowingInfo = clsBorrowing.FindByBorrowingID(_BorrowingID);
@@ -138,8 +143,10 @@ namespace LibraryManegement
             _SetDate();
             if(_Mode==enMode.Update)
             {
-                ctrlCopyInfoWithFilter1.EnabledFilerCopy = false;
-                ctrlMemberInfoWithFilter1.EnabledFilter = false;
+               // ctrlCopyInfoWithFilter1.EnabledFilerCopy = false;
+               // ctrlMemberInfoWithFilter1.EnabledFilter = false;
+                tabControl1.TabPages["tbMemberInfo"].Enabled = false;
+                tabControl1.TabPages["tpCopyInfo"].Enabled = false;
                 _LoadData();
             }
         }
@@ -185,12 +192,24 @@ namespace LibraryManegement
                 lblMode.Text = "Update Borrowing";
                 lblBorrowingID.Text = BorrowingInfo.BorrowingID.ToString();
                 OnSave(new EventSaveBorrowingArg(BorrowingInfo.BorrowingID,BorrowingInfo.CopyID));
+                tabControl1.TabPages["tbMemberInfo"].Enabled = false;
+                tabControl1.TabPages["tpCopyInfo"].Enabled = false;
                 MessageBox.Show("Saved Successfuly");
             }
             else
             {
                 MessageBox.Show("Not Saved");
             }
+        }
+
+        private void ctrlCopyInfoWithFilter1_CopySelected(object sender, ctrlCopyInfoWithFilter.EventCopySelectArg e)
+        {
+            lblCopyID.Text= e.CopyID.ToString();
+        }
+
+        private void ctrlMemberInfoWithFilter1_MemberSelect(object sender, ctrlMemberInfoWithFilter.EventSelectMemberArg e)
+        {
+            lblMemberID.Text=e.MemberID.ToString();
         }
     }
 }

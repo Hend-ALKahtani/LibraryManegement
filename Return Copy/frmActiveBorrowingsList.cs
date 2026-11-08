@@ -90,8 +90,21 @@ namespace LibraryManegement
                 e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
         }
 
+        private bool CheckingIsExistRow()
+        {
+            if (dgListBorrowings.Rows.Count == 0 || dgListBorrowings.CurrentRow == null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void returnCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(!CheckingIsExistRow())
+            {
+                return;
+            }
             int BorrowingID = (int)dgListBorrowings.CurrentRow.Cells[0].Value;
             clsBorrowing borrowing = clsBorrowing.FindByBorrowingID(BorrowingID);
          
@@ -131,6 +144,15 @@ namespace LibraryManegement
                 _AllActiveBorrowings.DefaultView.RowFilter = string.Format("[{0}] like '{1}'",columnName,txtFilter.Text.Trim());
             else
                 _AllActiveBorrowings.DefaultView.RowFilter = string.Format("[{0}] ={1}",columnName,txtFilter.Text.Trim());
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if(dgListBorrowings.Rows.Count==0 || dgListBorrowings.CurrentRow==null)
+            {
+                e.Cancel = true;
+                return;
+            }
         }
     }
 }

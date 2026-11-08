@@ -51,7 +51,8 @@ namespace LibraryManegement
         }
         public void ResetPersonInfo()
         {
-           
+
+            PersonID = -1;
             lblID.Text = "[????]";
             lblNationalNo.Text = "[????]";
             lblName.Text = "[????]";

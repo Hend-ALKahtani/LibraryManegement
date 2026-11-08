@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ctrlPersonCardWithFilter1 = new LibraryManegement.ctrlPersonCardWithFilter();
             this.btnNext = new System.Windows.Forms.Button();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.txtConfirmpassword = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.lblAddUpdate = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlPersonCardWithFilter1 = new LibraryManegement.ctrlPersonCardWithFilter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -73,6 +73,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage1.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.tabPage1.Controls.Add(this.btnNext);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -81,7 +82,14 @@
             this.tabPage1.Size = new System.Drawing.Size(1306, 611);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Person Info";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.EnableFilterBox = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(6, 7);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(937, 530);
+            this.ctrlPersonCardWithFilter1.TabIndex = 2;
             // 
             // btnNext
             // 
@@ -95,6 +103,7 @@
             // 
             // tpLoginInfo
             // 
+            this.tpLoginInfo.BackColor = System.Drawing.Color.LightBlue;
             this.tpLoginInfo.Controls.Add(this.txtConfirmpassword);
             this.tpLoginInfo.Controls.Add(this.pictureBox4);
             this.tpLoginInfo.Controls.Add(this.pictureBox3);
@@ -114,7 +123,6 @@
             this.tpLoginInfo.Size = new System.Drawing.Size(1306, 611);
             this.tpLoginInfo.TabIndex = 1;
             this.tpLoginInfo.Text = "Login Info";
-            this.tpLoginInfo.UseVisualStyleBackColor = true;
             // 
             // txtConfirmpassword
             // 
@@ -122,6 +130,7 @@
             this.txtConfirmpassword.Name = "txtConfirmpassword";
             this.txtConfirmpassword.Size = new System.Drawing.Size(100, 20);
             this.txtConfirmpassword.TabIndex = 11;
+            this.txtConfirmpassword.UseSystemPasswordChar = true;
             this.txtConfirmpassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmpassword_Validating);
             // 
             // pictureBox4
@@ -194,6 +203,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 3;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
@@ -260,7 +270,7 @@
             // 
             this.lblAddUpdate.AutoSize = true;
             this.lblAddUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddUpdate.ForeColor = System.Drawing.Color.Red;
+            this.lblAddUpdate.ForeColor = System.Drawing.Color.Black;
             this.lblAddUpdate.Location = new System.Drawing.Point(564, 9);
             this.lblAddUpdate.Name = "lblAddUpdate";
             this.lblAddUpdate.Size = new System.Drawing.Size(85, 29);
@@ -271,18 +281,11 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.EnableFilterBox = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(6, 7);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(937, 530);
-            this.ctrlPersonCardWithFilter1.TabIndex = 2;
-            // 
             // frmAddUpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.lblAddUpdate);
             this.Controls.Add(this.btnSave);

@@ -37,11 +37,11 @@ namespace LibraryManegement
                 }
                if(chRemember.Checked)
                 {
-                    RememberMe(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+                    Global.RememberMe(txtUserName.Text.Trim(), txtPassword.Text.Trim());
                 }
                else
                 {
-                    CleareCredential();
+                    Global.CleareCredential();
                 }
                 this.Hide();
                 Form1 frm = new Form1(this);
@@ -50,69 +50,12 @@ namespace LibraryManegement
                 {
                     //CleareCredential();
                     txtPassword.Text = "";
-                    txtPassword.Clear();
-                }
-           
-
-        }
-        public static bool RememberMe(string UserName,string Password)
-        {
-          
-            string KeyName = @"HKEY_CURRENT_USER\SOFTWARE\LibraryManegment";
-            string valuPassword = "Password";
-            string valueUserName = "UserName";
-            string Keyname = @"SOFTWARE\LibraryManegment";
-
-            try
-            {
-                using (RegistryKey key=Registry.CurrentUser.CreateSubKey(Keyname))
-                {
-                    if (key != null)
-                    {
-                        key.SetValue(valueUserName, UserName);
-                        key.SetValue(valuPassword, Password);
-                        return true;
-                    }
+                    txtUserName.Clear();
                     
                 }
-            }
-            catch(Exception E)
-            {
-                //throw new Exception(E.Message);
-                MessageBox.Show(E.Message);
-            }
-            return false;
         }
-        public static bool CleareCredential()
-        {
-            string KeyName = @"SOFTWARE\LibraryManegment";
-            string valuPassword = "Password";
-            string valueUserName = "UserName";
-            try
-            {
-                using (RegistryKey basekey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
-                {
-                    using (RegistryKey key = basekey.OpenSubKey(KeyName, writable: true))
-                    {
-                        if (key != null)
-                        {
-                            //here we user named arguments throwOnMissingValue:false write parameter name then write value
-                            //this argment if the value not found will not throw exception
-                            key.DeleteValue(valueUserName, throwOnMissingValue: false);
-                            key.DeleteValue(valuPassword, throwOnMissingValue: false);
-                            return true;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                //throw new Exception (ex.Message);
-                MessageBox.Show(ex.Message);
-            }
-            return false;
-        }
-
+        
+        
         private void frmLogIn_Load(object sender, EventArgs e)
         {
             string UserName = "";string PassWord = "";

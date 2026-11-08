@@ -65,12 +65,12 @@ namespace LibraryManegement
         }
         private void btnSerach_Click(object sender, EventArgs e)
         {
-            if(!this.ValidateChildren())
+            if (string.IsNullOrEmpty(txtFilter.Text))
             {
-                MessageBox.Show("there is some Filed not valid put mouse on red Icon(s)");
+                MessageBox.Show("Insert value to start search");
                 return;
             }
-            _FindNow();
+             _FindNow();
                
         }
 

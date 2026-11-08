@@ -91,7 +91,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(453, 168);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 29);
@@ -107,6 +107,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -134,7 +135,9 @@
             // 
             // dgvMembers
             // 
-            this.dgvMembers.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvMembers.AllowUserToAddRows = false;
+            this.dgvMembers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMembers.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMembers.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvMembers.Location = new System.Drawing.Point(48, 254);
@@ -151,40 +154,41 @@
             this.updateMemberToolStripMenuItem,
             this.deleteMemberToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(178, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete Membership";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // addMemberToolStripMenuItem
             // 
             this.addMemberToolStripMenuItem.Name = "addMemberToolStripMenuItem";
-            this.addMemberToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.addMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addMemberToolStripMenuItem.Text = "Add Member";
             this.addMemberToolStripMenuItem.Click += new System.EventHandler(this.addMemberToolStripMenuItem_Click);
             // 
             // showMemberInfoToolStripMenuItem
             // 
             this.showMemberInfoToolStripMenuItem.Name = "showMemberInfoToolStripMenuItem";
-            this.showMemberInfoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.showMemberInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showMemberInfoToolStripMenuItem.Text = "Show Member Info";
             this.showMemberInfoToolStripMenuItem.Click += new System.EventHandler(this.showMemberInfoToolStripMenuItem_Click);
             // 
             // updateMemberToolStripMenuItem
             // 
             this.updateMemberToolStripMenuItem.Name = "updateMemberToolStripMenuItem";
-            this.updateMemberToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.updateMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateMemberToolStripMenuItem.Text = "Update Member";
             this.updateMemberToolStripMenuItem.Click += new System.EventHandler(this.updateMemberToolStripMenuItem_Click);
             // 
             // deleteMemberToolStripMenuItem
             // 
             this.deleteMemberToolStripMenuItem.Name = "deleteMemberToolStripMenuItem";
-            this.deleteMemberToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.deleteMemberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteMemberToolStripMenuItem.Text = "Delete Member";
             this.deleteMemberToolStripMenuItem.Click += new System.EventHandler(this.deleteMemberToolStripMenuItem_Click);
             // 
@@ -212,6 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1136, 749);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblRecord);

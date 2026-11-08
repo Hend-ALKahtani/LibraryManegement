@@ -64,7 +64,8 @@
             // 
             // dgvCopiesForBooks
             // 
-            this.dgvCopiesForBooks.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgvCopiesForBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCopiesForBooks.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvCopiesForBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCopiesForBooks.Location = new System.Drawing.Point(49, 432);
             this.dgvCopiesForBooks.Name = "dgvCopiesForBooks";
@@ -75,6 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(905, 674);
             this.Controls.Add(this.dgvCopiesForBooks);
             this.Controls.Add(this.ctrlBookInfo1);

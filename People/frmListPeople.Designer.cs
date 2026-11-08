@@ -34,16 +34,16 @@
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.dgvListPeople = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPersonInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatePersonInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showPersonInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatePersonInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,7 +92,8 @@
             // 
             // dgvListPeople
             // 
-            this.dgvListPeople.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvListPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListPeople.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvListPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListPeople.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvListPeople.Location = new System.Drawing.Point(16, 340);
@@ -108,13 +109,42 @@
             this.showPersonInformationToolStripMenuItem,
             this.updatePersonInformationToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 114);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // addNewPersonToolStripMenuItem
+            // 
+            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.addNewPersonToolStripMenuItem.Text = "Add New Person";
+            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem_Click);
+            // 
+            // deletePersonToolStripMenuItem
+            // 
+            this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
+            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.deletePersonToolStripMenuItem.Text = "Delete Person";
+            this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
+            // 
+            // showPersonInformationToolStripMenuItem
+            // 
+            this.showPersonInformationToolStripMenuItem.Name = "showPersonInformationToolStripMenuItem";
+            this.showPersonInformationToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.showPersonInformationToolStripMenuItem.Text = "Show Person Information";
+            this.showPersonInformationToolStripMenuItem.Click += new System.EventHandler(this.showPersonInformationToolStripMenuItem_Click);
+            // 
+            // updatePersonInformationToolStripMenuItem
+            // 
+            this.updatePersonInformationToolStripMenuItem.Name = "updatePersonInformationToolStripMenuItem";
+            this.updatePersonInformationToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.updatePersonInformationToolStripMenuItem.Text = "Update Person Information";
+            this.updatePersonInformationToolStripMenuItem.Click += new System.EventHandler(this.updatePersonInformationToolStripMenuItem_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(549, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(199, 31);
@@ -164,45 +194,18 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LibraryManegement.Properties.Resources.People_400;
-            this.pictureBox1.Location = new System.Drawing.Point(555, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(655, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(193, 171);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // addNewPersonToolStripMenuItem
-            // 
-            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.addNewPersonToolStripMenuItem.Text = "Add New Person";
-            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem_Click);
-            // 
-            // deletePersonToolStripMenuItem
-            // 
-            this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
-            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.deletePersonToolStripMenuItem.Text = "Delete Person";
-            this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
-            // 
-            // showPersonInformationToolStripMenuItem
-            // 
-            this.showPersonInformationToolStripMenuItem.Name = "showPersonInformationToolStripMenuItem";
-            this.showPersonInformationToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.showPersonInformationToolStripMenuItem.Text = "Show Person Information";
-            this.showPersonInformationToolStripMenuItem.Click += new System.EventHandler(this.showPersonInformationToolStripMenuItem_Click);
-            // 
-            // updatePersonInformationToolStripMenuItem
-            // 
-            this.updatePersonInformationToolStripMenuItem.Name = "updatePersonInformationToolStripMenuItem";
-            this.updatePersonInformationToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.updatePersonInformationToolStripMenuItem.Text = "Update Person Information";
-            this.updatePersonInformationToolStripMenuItem.Click += new System.EventHandler(this.updatePersonInformationToolStripMenuItem_Click);
-            // 
             // frmListPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1312, 749);
             this.Controls.Add(this.lblRecordCount);
             this.Controls.Add(this.label3);

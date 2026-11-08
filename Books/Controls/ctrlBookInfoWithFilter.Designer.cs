@@ -94,7 +94,6 @@
             this.txtFilter.Size = new System.Drawing.Size(100, 20);
             this.txtFilter.TabIndex = 1;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
-            this.txtFilter.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilter_Validating);
             // 
             // label1
             // 

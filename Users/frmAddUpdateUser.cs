@@ -78,7 +78,7 @@ namespace LibraryManegement
             lblUserID.Text = User.UserID.ToString();
             txtUserName.Text = User.UserName;
            // txtPassword.Text = User.PassWord;
-            txtConfirmpassword.Text = User.PassWord;
+           // txtConfirmpassword.Text = User.PassWord;
             chboxIsActive.Checked = User.IsActive;
         }
         private void frmAddUpdateUser_Load(object sender, EventArgs e)
@@ -189,15 +189,15 @@ namespace LibraryManegement
             User.PersonID = ctrlPersonCardWithFilter1.PersonID;
             User.UserName=txtUserName.Text;
             User.IsActive = chboxIsActive.Checked;
-
-            if (_Mode==enMode.Update)
+            if(_Mode==enMode.AddNew)
             {
-                if(!string.IsNullOrEmpty(txtPassword.Text))
-                {
-                    User.ChangePassword(txtPassword.Text);
-                }
+                User.PassWord = txtPassword.Text;
             }
-            User.PassWord=txtPassword.Text;
+
+            if (_Mode==enMode.Update && !string.IsNullOrEmpty(txtPassword.Text))
+            {
+               User.ChangePassword(txtPassword.Text);
+            }
             if(User.Save())
             {
                 MessageBox.Show("Data Save Successfully");

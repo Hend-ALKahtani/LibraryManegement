@@ -91,11 +91,7 @@ namespace LibraryManegement
                         ColumnName = "FullName";
                         break;
                     }
-                case "Is Active":
-                    {
-                        ColumnName = "IsActive";
-                        break;
-                    }
+                
                 case "None":
                     {
                         ColumnName = "";
@@ -163,8 +159,21 @@ namespace LibraryManegement
             this.Close();
         }
 
+        private bool CheckingIsExistRow()
+        {
+            if (dgvListUser.Rows.Count == 0 || dgvListUser.CurrentRow == null)
+            {
+                MessageBox.Show("There isn't Record");
+                return false;
+            }
+            return true;
+        }
         private void showUserDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          if(!CheckingIsExistRow())
+            {
+                return;
+            }
             frmShowUserInfo frm = new frmShowUserInfo((int)dgvListUser.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
@@ -178,6 +187,10 @@ namespace LibraryManegement
 
         private void editUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           if(!CheckingIsExistRow())
+            {
+                return;
+            }
             frmAddUpdateUser frm = new frmAddUpdateUser((int)dgvListUser.CurrentRow.Cells[0].Value);
             frm.OnUserSaved += ShowUpdate;
             frm.ShowDialog();
@@ -185,6 +198,10 @@ namespace LibraryManegement
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           if(!CheckingIsExistRow())
+            {
+                return;
+            }
             if(MessageBox.Show("Are you sure want delete this user", "confirm", MessageBoxButtons.OK)==DialogResult.OK)
             {
                 if (clsUser.Delete((int)dgvListUser.CurrentRow.Cells[0].Value))
@@ -199,8 +216,20 @@ namespace LibraryManegement
 
         private void changPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!CheckingIsExistRow())
+            {
+                return;
+            }
             frmChangPassword frm = new frmChangPassword((int)dgvListUser.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if(dgvListUser.Rows.Count==0 || dgvListUser.CurrentRow==null)
+            {
+                return;
+            }
         }
     }
 }
